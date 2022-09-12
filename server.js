@@ -28,7 +28,6 @@ app.post("/refresh", (req, res) => {
       })
     })
     .catch(err => {
-      console.log(err)
       res.sendStatus(400)
     })
 })
@@ -44,8 +43,6 @@ app.post("/login", (req, res) => {
   spotifyApi
     .authorizationCodeGrant(code)
     .then(data => {
-      console.log("00000")
-      console.log(data.body.access_token)
       res.json({
         accessToken: data.body.access_token,
         refreshToken: data.body.refresh_token,
